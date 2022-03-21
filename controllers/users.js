@@ -15,7 +15,7 @@ module.exports.register = async (req, res, next) => {
                 return next(err);
             } else {
                 req.flash('success', 'welcome to yelp camp');
-                res.redirect('/campgrounds');
+                res.redirect('/houses');
             }
         });
 
@@ -32,7 +32,7 @@ module.exports.renderLogin = (req, res) => {
 
 module.exports.login = (req, res) => {
     req.flash('success', 'welcome back!');
-    const redirectUrl = req.session.returnTo || '/campgrounds';
+    const redirectUrl = req.session.returnTo || '/houses';
     console.log(redirectUrl);
     // delete req.session.returnTo;
     res.redirect(redirectUrl);
@@ -42,5 +42,5 @@ module.exports.login = (req, res) => {
 module.exports.logout = (req, res) => {
     req.logout();
     req.flash('success', 'Goodbye!');
-    res.redirect('/campgrounds');
+    res.redirect('/houses');
 }

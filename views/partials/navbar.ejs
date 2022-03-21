@@ -1,16 +1,17 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">YelpCamp</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="/campgrounds">Campgrounds</a>
-                <a class="nav-link" href="/campgrounds/new">New Campground</a>
-            </div>
+<header class="p-3 bg-light">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="/houses" class="nav-link px-2 text-secondary"><H3>Home</H3></a></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" method="get" action="/houses">
+                <input name="search" type="search" class="form-control form-control-dark"
+                       placeholder="Search by name or address" aria-label="Search">
+            </form>
+
             <div class="navbar-nav ml-auto">
                 <% if(!currentUser) { %>
                     <a class="nav-link" href="/login">Login</a>
@@ -21,4 +22,4 @@
             </div>
         </div>
     </div>
-</nav>
+</header>

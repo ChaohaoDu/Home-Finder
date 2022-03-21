@@ -5,21 +5,21 @@
 <div class="row">
     <div class="col-6">
 
-        <div id="campgroundCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div id="houseCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <% campground.images.forEach((img, i) => { %>
+                <% house.images.forEach((img, i) => { %>
                     <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
                         <img src="<%= img.url %>" class="d-block w-100" alt="">
                     </div>
                 <% }) %>
             </div>
-            <% if (campground.images.length > 1) { %>
-                <button class="carousel-control-prev" type="button" data-bs-target="#campgroundCarousel"
+            <% if (house.images.length > 1) { %>
+                <button class="carousel-control-prev" type="button" data-bs-target="#houseCarousel"
                         data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#campgroundCarousel"
+                <button class="carousel-control-next" type="button" data-bs-target="#houseCarousel"
                         data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
@@ -31,19 +31,19 @@
         <div class="card mb-3">
 
             <div class="card-body">
-                <h5 class="card-title"><%= campground.title %></h5>
-                <p class="card-text"><%= campground.description %></p>
+                <h5 class="card-title"><%= house.title %></h5>
+                <p class="card-text"><%= house.description %></p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item text-muted"><%= campground.location %></li>
-                <li class="list-group-item">Submitted by <%= campground.author.username %></li>
+                <li class="list-group-item text-muted"><%= house.location %></li>
+                <li class="list-group-item">Submitted by <%= house.author.username %></li>
 
-                <li class="list-group-item">$<%= campground.price %>/night</li>
+                <li class="list-group-item">$<%= house.price %>/night</li>
             </ul>
-            <% if (currentUser && campground.author.equals(currentUser._id)) { %>
+            <% if (currentUser && house.author.equals(currentUser._id)) { %>
                 <div class="card-body">
-                    <a class="card-link btn btn-info" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
-                    <form class="d-inline" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+                    <a class="card-link btn btn-info" href="/houses/<%= house._id %>/edit">Edit</a>
+                    <form class="d-inline" action="/houses/<%= house._id %>?_method=DELETE" method="POST">
                         <button class="btn btn-danger">Delete</button>
                     </form>
                 </div>
@@ -57,7 +57,7 @@
     <div class="col-6">
         <% if (currentUser) { %>
             <h2>Leave a Review</h2>
-            <form action="/campgrounds/<%= campground._id %>/reviews" method="POST" class="mb-3 validated-form"
+            <form action="/houses/<%= house._id %>/reviews" method="POST" class="mb-3 validated-form"
                   novalidate>
 
                 <fieldset class="starability-basic">
@@ -87,7 +87,7 @@
                 <button class="btn btn-success">Submit</button>
             </form>
         <% } %>
-        <% for (let review of campground.reviews) { %>
+        <% for (let review of house.reviews) { %>
             <div class="card mb-3 ">
                 <div class="card-body">
                     <h5 class="card-title"><%= review.author.username %> </h5>
@@ -97,7 +97,7 @@
                     <p class="card-text">Review: <%= review.body %></p>
 
                     <% if (currentUser && review.author.equals(currentUser._id)) { %>
-                        <form action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=DELETE"
+                        <form action="/houses/<%= house._id %>/reviews/<%= review._id %>?_method=DELETE"
                               method="POST">
                             <button class="btn btn-sm btn-danger">Delete</button>
                         </form>

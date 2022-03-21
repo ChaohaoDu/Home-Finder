@@ -119,11 +119,11 @@ app.use((req, res, next) => {
 // ======================
 // router
 // ======================
-const campgroundsRoutes = require('./routes/campgrounds');
-app.use('/campgrounds', campgroundsRoutes);
+const housesRoutes = require('./routes/houses');
+app.use('/houses', housesRoutes);
 
 const reviewsRoutes = require('./routes/reviews');
-app.use('/campgrounds/:id/reviews', reviewsRoutes);
+app.use('/houses/:id/reviews', reviewsRoutes);
 
 const usersRoutes = require('./routes/users');
 app.use('/', usersRoutes);

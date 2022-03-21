@@ -11,7 +11,7 @@ ImageSchema.virtual('thumbnail').get(function () {
     return this.url.replace('/upload', '/upload/w_200,c_fill');
 });
 
-const CampgroundSchema = new Schema({
+const HouseSchema = new Schema({
     title: String,
     images: [ImageSchema],
     price: Number,
@@ -31,7 +31,7 @@ const CampgroundSchema = new Schema({
 
 
 // run when findOneAndDelete() runs
-CampgroundSchema.post('findOneAndDelete', async function (doc) {
+HouseSchema.post('findOneAndDelete', async function (doc) {
     if (doc) {
         await Review.deleteMany({
             _id: {
@@ -41,4 +41,4 @@ CampgroundSchema.post('findOneAndDelete', async function (doc) {
     }
 })
 
-module.exports = mongoose.model('Campground', CampgroundSchema);
+module.exports = mongoose.model('House', HouseSchema);
