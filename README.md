@@ -17,7 +17,7 @@ This is an example of how to list things you need to use the software and how to
 * node.js
 ### Installation
 
-1. Get free API Keys at [cloudinary](https://cloudinary.com/)and [mongodb](https://www.mongodb.com)
+1. Get free API Keys at [cloudinary](https://cloudinary.com/) and [mongodb](https://www.mongodb.com)
 2. Clone the repo
    ```sh
    git clone https://github.com/github_username/repo_name.git
