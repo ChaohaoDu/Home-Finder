@@ -21,7 +21,7 @@ const session = require('express-session');
 const mongoSanitize = require('express-mongo-sanitize');
 const MongoStore = require("connect-mongo");
 const secret = process.env.SECRET || 'secret';
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp';
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/home-finder';
 
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
